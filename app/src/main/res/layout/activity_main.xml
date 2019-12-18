@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_permission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="requestPermission"
+                android:text="请求运行时权限" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:onClick="isHasPermission"
+                android:text="权限是否已经获取" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:onClick="gotoPermissionSettings"
+                android:text="应用权限设置页面" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_show_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/ll_permission"
+            android:layout_above="@id/cl_operation"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="16sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_operation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_permission"
+        android:layout_marginTop="12dp">
+
+        <Button
+            android:id="@+id/btn_in_open_file_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="内存写文件openFileOutput"
+            android:onClick="inOpenFileOutput"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_in_open_file_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/btn_in_open_file_output"
+            app:layout_constraintTop_toTopOf="@id/btn_in_open_file_output"
+            android:text="内存读文件openFileInput"
+            android:onClick="inOpenFileInput"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_in_get_files_dir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_in_open_file_output"
+            android:text="内存写文件getFilesDir"
+            android:textAllCaps="false"
+            android:onClick="inGetFilesDir"/>
+
+        <Button
+            android:id="@+id/btn_in_file_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/btn_in_get_files_dir"
+            app:layout_constraintTop_toTopOf="@id/btn_in_get_files_dir"
+            android:text="内存文件列表fileList"
+            android:textAllCaps="false"
+            android:onClick="inFileList"/>
+
+        <Button
+            android:id="@+id/btn_in_delete_file"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_in_get_files_dir"
+            android:text="内存删除文件deleteFile"
+            android:textAllCaps="false"
+            android:onClick="inDeleteFile"/>
+
+        <Button
+            android:id="@+id/btn_in_get_cache_dir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/btn_in_delete_file"
+            app:layout_constraintTop_toTopOf="@id/btn_in_delete_file"
+            android:text="内存getCacheDir写文件"
+            android:textAllCaps="false"
+            android:onClick="inGetCacheDir"/>
+
+        <Button
+            android:id="@+id/btn_in_get_dir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_in_delete_file"
+            android:text="内存自定义文件夹写文件"
+            android:textAllCaps="false"
+            android:onClick="inGetDir"/>
+
+        <Button
+            android:id="@+id/btn_out_get_external_storage_public_dir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_in_get_dir"
+            android:text="外存公用文件夹download写文件"
+            android:textAllCaps="false"
+            android:onClick="outGetExternalStoragePublicDictionary"/>
+
+        <Button
+            android:id="@+id/btn_out_get_external_files_dir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@id/btn_out_get_external_storage_public_dir"
+            app:layout_constraintTop_toBottomOf="@id/btn_out_get_external_storage_public_dir"
+            android:text="外存getExternalFilesDir写文件"
+            android:textAllCaps="false"
+            android:onClick="outGetExternalFilesDir"/>
+
+        <Button
+            android:id="@+id/btn_out_get_external_cache_dir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_out_get_external_files_dir"
+            android:text="外存getExternalCacheDir写入文件"
+            android:textAllCaps="false"
+            android:onClick="outGetExternalCacheDir"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
